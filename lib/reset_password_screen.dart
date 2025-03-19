@@ -11,7 +11,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
   void resetPassword() async {
     await AuthService().resetPassword(emailController.text, context);
-    Navigator.pop(context); 
+    Navigator.pop(context);
   }
 
   @override
@@ -21,7 +21,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("ลืมรหัสผ่าน"),
+        title: Text(
+          "ลืมรหัสผ่าน",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.orange.shade700,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
@@ -30,34 +34,73 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.orange.shade400, Colors.orange.shade900],
+            colors: [Colors.orange.shade300, Colors.orange.shade800],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
         ),
         child: Center(
           child: Card(
-            elevation: 10,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            elevation: 12,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
             child: Container(
               width: width < maxWidth ? width : maxWidth,
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(24),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("ลืมรหัสผ่าน", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  // Title
+                  Text(
+                    "รีเซ็ตรหัสผ่าน",
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.orange.shade800,
+                    ),
+                  ),
                   SizedBox(height: 20),
-                  TextField(controller: emailController, decoration: InputDecoration(labelText: "อีเมล")),
-                  SizedBox(height: 20),
+
+                  // Email Input Field
+                  TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      labelText: "อีเมล",
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.orange.shade700,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 24),
+
+                  // Reset Password Button
                   ElevatedButton(
                     onPressed: resetPassword,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange.shade700,
                       foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       minimumSize: Size(double.infinity, 50),
                     ),
-                    child: Text("รีเซ็ตรหัสผ่าน", style: TextStyle(fontSize: 18)),
+                    child: Text(
+                      "รีเซ็ตรหัสผ่าน",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+
+                  // Instruction Text
+                  Text(
+                    "กรุณากรอกอีเมลของคุณเพื่อรับลิงก์รีเซ็ตรหัสผ่าน",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
                   ),
                 ],
               ),
