@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "630989469029",
+    "project_id": "authen-hasak",
+    "storage_bucket": "authen-hasak.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630989469029:android:fd914cb9f4d0a029a6dd8c",
+        "android_client_info": {
+          "package_name": "com.example.authenhasaki"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIO1OJniXnbI8pUoPF82UemAikj9gZbco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
